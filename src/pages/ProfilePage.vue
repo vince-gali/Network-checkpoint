@@ -1,9 +1,28 @@
 <template>
-    <ProfileCard :profileProp="profile"/>
-    <div class="col-10" v-for="p in posts" :key="p.id">
-        <PostCard :postProp="p" />
-        <!-- <p>test</p> -->
+
+<div class="container-fluid">
+    <section class="row">
+        <div class="justify-items-center">
+    <div class="row mt-2" v-if="profile">
+        <div class="col-md-8 m-auto">
+            <div>
+                <ProfileCard :profileProp="profile"/>
+            </div>
+        </div>
     </div>
+</div>
+</section>
+    
+    
+    
+<div class="col-10">
+    <PostForm/>
+</div>
+    <div class="col-8" v-for="p in posts" :key="p.id">
+        <PostCard :postProp="p" />
+    </div>
+    </div>
+    
 </template>
 
 

@@ -1,5 +1,6 @@
 export class Profile{
     constructor(data){
+        this.id = data.id
         this.subs = data.subs
         this.email = data.email
         this.name = data.name

@@ -70,6 +70,28 @@ class PostsService {
         // AppState.totalPages = res.data.total_pages
     }
 
+    async createPost(formData){
+        const res = await api.post('api/posts', formData)
+        logger.log('creating post', res.data)
+        AppState.posts = AppState.posts.unshift(new Post(res.data))
+    }
+
+    async deletePost(postId){
+        logger.log('[DELETING POST]', postId)
+        const res = await api.delete(`api/posts/${postId}`)
+        logger.log('[DELETING POST]', res.data)
+        AppState.posts = AppState.posts.filter(p => p.id !=postId)
+    }
+
+    async addLike(postId){
+        const likeIds = Post.likeIds
+        logger.log('adding a like')
+        const res = await api.post(`api/posts/${postId}/like`, likeIds++)
+        logger.log('increasing by 1')
+
+    //     // AppState.posts = AppState.posts.filter(p => p.id !=postId)
+    }
+
 
 
 }

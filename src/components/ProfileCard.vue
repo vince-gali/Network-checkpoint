@@ -1,7 +1,7 @@
 <template>
 
     <section class="row">
-        <div class="col-10 card ">
+        <div class="col-8 card ">
             <div class="card-body">
                 <div class="profile-card">
                     
@@ -16,9 +16,7 @@
             </div>
 
         </div>
-        <div class="col-2">
-            ads here
-        </div>
+        
     </section>
 
 

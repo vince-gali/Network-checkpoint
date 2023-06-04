@@ -3,6 +3,7 @@
   <section.row>
     <div class="col-6">
       <SearchBar/>
+      <PostForm/>
     </div>
   </section.row>
 
@@ -44,10 +45,19 @@ export default {
       }
     }
 
+    async function createPost(){
+      try {
+        await postsService.createPost()
+      } catch (error) {
+        Pop.error(error)
+      }
+    }
+
     
 
     onMounted(()=> {
       getPosts()
+      // createPost()
       // getBanner()
     })
 
