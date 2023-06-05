@@ -1,7 +1,7 @@
 <template>
 
     <section class="row">
-        <div class="col-8 card ">
+        <div class="col-8 card   ">
             <div class="card-body">
                 <div class="profile-card">
                     
@@ -10,9 +10,12 @@
                 
                 <img class="rounded-circle profile-picture" :src="profileProp?.picture" alt="">
                 <h4>{{ profileProp.name }}</h4>
-                <p>if they have github/ socials, show icon for each</p>
+                <h5 >Class of {{ profileProp.class }}</h5>
                 <p>{{ profileProp.bio }}</p>
-                <p :disabled="!graduated"> <i class="mdi mid-graduated">graduated</i></p>
+                <h5 :disabled="!linkedin"> <i class="mdi mdi-linkedin"></i> </h5>
+                <h5 :disabled="!linkedin"> <i class="mdi mdi-github"></i> </h5>
+                <p :disabled="graduated"> <i class="mdi mid-graduated">graduated</i></p>
+                <p>{{ profileProp.class }}</p>
             </div>
 
         </div>
@@ -53,6 +56,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     place-content: center;
+    background-color: white;
 }
 
 .profile-picture{

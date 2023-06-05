@@ -1,7 +1,7 @@
 <template>
 
     <form @submit.prevent="searchPosts()" action="">
-        <input type="text" class="w-50" v-model="search" placeholder="Search...">
+        <input type="text" class="w-100 rounded" v-model="search" placeholder="Search...">
         <!-- <button type="submit">search</button> -->
     </form>
 

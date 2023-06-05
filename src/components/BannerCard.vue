@@ -1,13 +1,13 @@
 <template>
-<section class="row">
+<!-- <section class="row"> -->
 
     
-    <div class="my-2 ">
-        <img :src="bannerProp.banner" alt="">
+    <div class="my-5 ">
+        <img class="text-end" :src="bannerProp.tall" alt="">
         <!-- <p>{{ bannerProp.title }}</p> -->
     
 </div>
-</section>
+<!-- </section> -->
 
 </template>
 

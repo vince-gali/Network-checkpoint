@@ -84,10 +84,12 @@ class PostsService {
     }
 
     async addLike(postId){
-        const likeIds = Post.likeIds
-        logger.log('adding a like')
-        const res = await api.post(`api/posts/${postId}/like`, likeIds++)
-        logger.log('increasing by 1')
+        // const likeIds = Post.likeIds
+        // logger.log('adding a like')
+        const res = await api.post(`api/posts/${postId}/like`)
+        logger.log('liking or unliking post')
+
+        // AppState.posts = new Post(res.data)
 
     //     // AppState.posts = AppState.posts.filter(p => p.id !=postId)
     }

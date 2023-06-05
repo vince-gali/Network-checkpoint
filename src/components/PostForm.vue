@@ -1,14 +1,24 @@
 <template>
 
+<div class="ps-5">
+<div class="card  pt-4 postCard-body p-2 elevation-5">
+
+<div>
+    <img :src="profileProp?.picture" alt="">
+</div>
     <form  @submit="submitPostForm()" action="">
-        <div class="mb-3">
-            <div class="mb-3">
+        <div class="mb-">
+            <div class="mb-1">
         
-                <input type="text" v-model="editable.body" required class="form-control" id="body" placeholder="Share What's Happening..">
+                <input type="text" v-model="editable.body" required class="form-control " id="body" placeholder="Share What's Happening..">
             </div>
-                <button class="text-end" type="submit">Create Post</button>
+            <div class="">
+                <p class="text-end pt-2 pe-3" type="submit"> <i class="mdi mdi-send"></i> Create Post</p>
+            </div>
         </div>
     </form>
+</div>
+</div>
 
 </template>
 
@@ -54,5 +64,10 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.postCard-body{
+    background-color: white;
+    
+}
 
 </style>

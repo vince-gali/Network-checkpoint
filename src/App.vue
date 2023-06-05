@@ -2,13 +2,23 @@
   <header>
     <Navbar />
   </header>
+
   <main>
-    <router-view />
-    <div class="col-2" v-for="b in banners">
-      <BannerCard :bannerProp="b"/>
+    <div class="d-flex">
+      <div class="col-8">
+        <router-view />
+      </div>
+
+      <div class="col-2">
+        <div class="col-2" v-for="b in banners">
+          <BannerCard :bannerProp="b"/>
+        </div>
+      </div>
     </div>
   </main>
-   <footer class="bg-dark text-light">
+
+
+   <footer class="footer-sty text-light">
     
   </footer>
 </template>
@@ -55,5 +65,9 @@ footer {
   display: grid;
   place-content: center;
   height: 32px;
+}
+
+.footer-sty{
+  background-color: rgb(32, 155, 155);
 }
 </style>

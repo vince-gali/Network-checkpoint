@@ -15,5 +15,7 @@ export const AppState = reactive({
   query: null,
   currentPage: null,
   totalPages: null,
-  banners: null
+  banners: null,
+  page: null,
+  totalPages: null
 })

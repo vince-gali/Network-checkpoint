@@ -18,12 +18,22 @@
     <label for="cover-img">Cover Image:</label>
   </div>
   <div class="form-floating mb-3">
-    <input name="cover-img" class="form-control" placeholder="cover Image" type="url"  v-model="editable.socialPlatform">
-    <label for="cover-img">Social:</label>
+    <input name="github" class="form-control" placeholder="Github" type="url"  v-model="editable.github">
+    <label for="cover-img">Github:</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input name="linkedin" class="form-control" placeholder="LinkedIn" type="url"  v-model="editable.linkedin">
+    <label for="linkedin">LinkedIn:</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input name="class" class="form-control" placeholder="Class Year" type="text"  v-model="editable.class">
+    <label for="class">Class:</label>
   </div>
 </div>
-<div class="card-footer text-end">
+<div class="pb-4 pe-4 text-end">
+  <!-- <router-link :to="{name: 'Profile'}"> -->
   <button class="btn btn-outline-primary" type="submit">Save Account</button>
+<!-- </router-link> -->
 </div>
 
 

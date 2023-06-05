@@ -1,27 +1,46 @@
 <template>
 
-<div class="container-fluid">
-    <section class="row">
-        <div class="justify-items-center">
-    <div class="row mt-2" v-if="profile">
-        <div class="col-md-8 m-auto">
-            <div>
-                <ProfileCard :profileProp="profile"/>
+    <div class="container-fluid">
+        <section class="row">
+            <div class="">
+                <div class="row mt-2" v-if="profile">
+                    <div class="col-12 ps-5">
+                <div class="my-2">
+                    <ProfileCard :profileProp="profile"/>
+                </div>
             </div>
         </div>
     </div>
-</div>
-</section>
+    </section>
     
-    
-    
-<div class="col-10">
-    <PostForm/>
-</div>
-    <div class="col-8" v-for="p in posts" :key="p.id">
-        <PostCard :postProp="p" />
+    <div class="col-10" >
+        <PostForm v-if="user.id != account.id" />
     </div>
+        <div class="col-8 py-2" v-for="p in posts" :key="p.id">
+            <PostCard :postProp="p" />
+        </div>
+        </div>
+
+
+        <div class="">
+      <button :disabled="page==totalPages" @click="changePage(newerPost)">Newer</button>
+      <button :disabled="page==totalPages" @click= "changePage(olderPost)">Older</button>
     </div>
+
+        <!-- <div>
+        <div class="">
+            <ProfileCard :profileProp="profile"/>
+        </div>
+
+        <div class="col-8" v-for="p in posts" :key="p.id">            
+            <PostCard :postProp="p" />
+        </div>
+    </div> -->
+
+
+
+
+        
     
 </template>
 
@@ -63,7 +82,21 @@ export default {
 
         return {
             profile: computed(()=> AppState.activeProfile),
-            posts: computed(()=> AppState.posts)
+            posts: computed(()=> AppState.posts),
+            user: computed(()=> AppState.user),
+            account: computed(()=> AppState.account),
+            page: computed(()=> AppState.page),
+            totalPages: computed(()=> AppState.totalPages),
+            // newerPost: computed(()=> AppState.newer),
+            // olderPost: computed(()=> AppState.older),
+
+            async changePage(url){
+      try {
+        await postsService.changePage(url)
+      } catch (error) {
+        Pop.error(error)
+      }
+    }
         }
     }
 }

@@ -7,7 +7,7 @@ export class Post{
         this.creator = data.creator
         this.creatorId = data.creatorId
         this.likeIds = data.likeIds
-        this.createdAt = data.createdAt
+        this.createdAt =  new Date(data.createdAt)
         
     }
 }

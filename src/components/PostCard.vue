@@ -2,20 +2,25 @@
 
 
 
-<div class="card row">
-      <div class="card-body">
+<div class="card row card-body elevation-5">
+      <div class="">
+        <div class="d-flex">
         <router-link :to = "{name: 'Profile', params: {id:postProp.creatorId}}">
             <img @click="setActiveProfile()" class="img-fluid rounded-circle post-creator" :src="postProp.creator.picture" alt="">
         </router-link>
-
+        <div class="ps-2 align-items-center">
         <p>{{postProp?.creator.name}}</p>
         <p>{{ postProp?.createdAt }}</p>
-        <p>{{postProp?.body}}</p>
+    </div>
+    </div>
+        <div class="">
+            <p>{{postProp?.body}}</p>
+        </div>
         <!-- <div v-for="p in posts" :key="p.id"> -->
             <p @click="addLike(postProp?.id)" class="text-end"> <i class="mdi mdi-heart" ></i> {{ postProp?.likeIds.length }}</p>
         <!-- </div> -->
       </div>
-      <button @click="deletePost(postProp?.id) " v-if="postProp?.creatorId == account?.id">Delete</button>
+      <button @click="deletePost(postProp?.id) " v-if="postProp?.creatorId == account?.id"> <i class="mdi mdi-pencil"></i>Delete </button>
     </div>
 
 
@@ -85,6 +90,11 @@ export default {
     height: 60px;
     aspect-ratio: 1/1;
     object-fit: cover;
+}
+
+.card-body{
+    background-color: white;
+    border-radius: 10px;
 }
 
 </style>

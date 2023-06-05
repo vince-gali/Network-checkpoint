@@ -1,28 +1,30 @@
 <template>
 
-  <section.row>
-    <div class="col-6">
-      <SearchBar/>
-      <PostForm/>
-    </div>
-  </section.row>
-
- <section class="row">
-  <div class="col-10" v-for="p in posts" key="p.id" >
-    <PostCard :postProp="p" />
-    <!-- <div class="card row">
-      <div class="card-body">
-        <p>profile</p>
-        <p>post</p>
+  <!-- <section class="row "> -->
+    <div class="ps-">
+      
+      <div class="col-11 py-3">
+        <PostForm v-if="account.id"/>
       </div>
-    </div> -->
+    </div>
+  <!-- </section> -->
+
+   <!-- <section class="row"> -->
+    <div class="">
+    <div class="col-11 py-2 ps-4 " v-for="p in posts" key="p.id" >
+      <PostCard :postProp="p" />
+    </div>
   </div>
-  <div class="">
-    <button :disabled="!newerPost" @click="changePage(newerPost)">Newer</button>
-    <button :disabled="!olderPost" @click= "changePage(olderPost)">Older</button>
-    
+
+  <section class="row justify-content-center ">
+    <div class="col-6 justify-content-between ">
+    <div class="py-4 px-5">
+      <button class="" :disabled="!newerPost" @click="changePage(newerPost)">Newer</button>
+      <button :disabled="!olderPost" @click= "changePage(olderPost)">Older</button>
+    </div>
   </div>
- </section>
+  </section>
+   <!-- </section> -->
 
 </template>
 
@@ -66,6 +68,8 @@ export default {
       posts: computed(()=> AppState.posts),
       newerPost: computed(()=> AppState.newer),
       olderPost: computed(()=> AppState.older),
+      user: computed(()=> AppState.user),
+      account: computed(()=> AppState.account),
 
       async changePage(url){
       try {
@@ -107,6 +111,11 @@ export default {
       object-fit: contain;
       object-position: center;
     }
+  }
+
+  .buttons{
+    justify-content: space-between;
+    color: white;
   }
 }
 </style>
