@@ -10,6 +10,10 @@ export class Account  {
     this.name = data.name
     this.picture = data.picture
     this.coverImg = data.coverImg
+    this.github = data.github
+    this.linkedin = data.linkedin
+    this.class = data.class
+    this.graduated = data.graduated
     // TODO add additional properties if needed
   }
 }

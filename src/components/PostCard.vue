@@ -9,15 +9,16 @@
             <img @click="setActiveProfile()" class="img-fluid rounded-circle post-creator" :src="postProp.creator.picture" alt="">
         </router-link>
         <div class="ps-2 align-items-center">
-        <p>{{postProp?.creator.name}}</p>
+        <p>{{postProp.creator?.name}}</p>
         <p>{{ postProp?.createdAt }}</p>
+        <img class="img-fluid" :src="postProp.imgUrl" alt="">
     </div>
     </div>
         <div class="">
             <p>{{postProp?.body}}</p>
         </div>
         <!-- <div v-for="p in posts" :key="p.id"> -->
-            <p @click="addLike(postProp?.id)" class="text-end"> <i class="mdi mdi-heart" ></i> {{ postProp?.likeIds.length }}</p>
+            <p @click="addLike(postProp?.id)" class="text-end"> <i class="mdi mdi-heart" ></i> {{ postProp.likeIds?.length }}</p>
         <!-- </div> -->
       </div>
       <button @click="deletePost(postProp?.id) " v-if="postProp?.creatorId == account?.id"> <i class="mdi mdi-pencil"></i>Delete </button>

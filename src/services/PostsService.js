@@ -22,6 +22,8 @@ class PostsService {
             }
         })
         AppState.posts = res.data.posts.map(p=> new Post(p))
+        AppState.older = res.data.older
+        AppState.newer = res.data.newer
     }
 
     async changePage(url){
@@ -73,7 +75,7 @@ class PostsService {
     async createPost(formData){
         const res = await api.post('api/posts', formData)
         logger.log('creating post', res.data)
-        AppState.posts = AppState.posts.unshift(new Post(res.data))
+        AppState.posts.unshift(new Post(res.data))
     }
 
     async deletePost(postId){
@@ -86,7 +88,7 @@ class PostsService {
     async addLike(postId){
         // const likeIds = Post.likeIds
         // logger.log('adding a like')
-        const res = await api.post(`api/posts/${postId}/like`)
+        const res = await api.put(`api/posts/${postId}/like`)
         logger.log('liking or unliking post')
 
         // AppState.posts = new Post(res.data)

@@ -1,5 +1,7 @@
 <template>
 
+  
+
 <form class="card elevation-1" @submit.prevent="handleSubmit">
 
 <div class="card-body">
@@ -29,6 +31,11 @@
     <input name="class" class="form-control" placeholder="Class Year" type="text"  v-model="editable.class">
     <label for="class">Class:</label>
   </div>
+  <div class="form-floating mb-3">
+    <input type="checkbox"  v-model="editable.graduated" name="graduated" id=""><p>Graduated</p>
+    
+  </div>
+
 </div>
 <div class="pb-4 pe-4 text-end">
   <!-- <router-link :to="{name: 'Profile'}"> -->

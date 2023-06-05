@@ -23,8 +23,8 @@
 
 
         <div class="">
-      <button :disabled="page==totalPages" @click="changePage(newerPost)">Newer</button>
-      <button :disabled="page==totalPages" @click= "changePage(olderPost)">Older</button>
+      <button :disabled="!newerPost" @click="changePage(newerPost)">Newer</button>
+      <button :disabled="!olderPost" @click= "changePage(olderPost)">Older</button>
     </div>
 
         <!-- <div>
@@ -87,8 +87,8 @@ export default {
             account: computed(()=> AppState.account),
             page: computed(()=> AppState.page),
             totalPages: computed(()=> AppState.totalPages),
-            // newerPost: computed(()=> AppState.newer),
-            // olderPost: computed(()=> AppState.older),
+            newerPost: computed(()=> AppState.newer),
+            olderPost: computed(()=> AppState.older),
 
             async changePage(url){
       try {

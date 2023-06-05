@@ -20,6 +20,12 @@
         <div class="ps-5">
         <SearchBar/>
       </div>
+<!-- <router-link :to="{name:'Profile', params: {id:postProp.creatorId}}">
+      <div class="ps-5">
+        <h5 @click="setActiveProfile()"><i class="mdi mdi-account-box"></i>My Profile</h5>
+      </div>
+    </router-link> -->
+
       </ul>
       <!-- LOGIN COMPONENT HERE -->
       <Login />
@@ -28,10 +34,23 @@
 </template>
 
 <script>
+import { computed } from '@vue/reactivity';
+import { Post } from '../models/Post.js';
 import Login from './Login.vue';
+import { AppState } from '../AppState.js';
 export default {
-  setup() {
-    return {}
+
+  props: {
+    postProp: {type: Post, required: true}
+  },
+  setup(props) {
+    return {
+      setActiveProfile(){
+                AppState.activeProfile = props.Post
+            },
+
+          account: computed(()=> AppState.account)
+    }
   },
   components: { Login }
 }

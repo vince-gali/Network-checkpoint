@@ -4,7 +4,7 @@
 <div class="card  pt-4 postCard-body p-2 elevation-5">
 
 <div>
-    <img :src="profileProp?.picture" alt="">
+    <!-- <img :src="profileProp?.picture" alt="">  -->
 </div>
     <form  @submit="submitPostForm()" action="">
         <div class="mb-">
@@ -12,8 +12,9 @@
         
                 <input type="text" v-model="editable.body" required class="form-control " id="body" placeholder="Share What's Happening..">
             </div>
-            <div class="">
-                <p class="text-end pt-2 pe-3" type="submit"> <i class="mdi mdi-send"></i> Create Post</p>
+            <div class="text-end py-2">
+                <button class="" type="submit"> <i class="mdi mdi-send"></i> Create Post</button>
+                <!-- <button>Create post</button> -->
             </div>
         </div>
     </form>

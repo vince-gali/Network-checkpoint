@@ -11,7 +11,7 @@ export class Profile{
         this.linkedin = data.linkedin
         this.resume = data.resume
         this.class = data.class
-        this.graduated = false
+        this.graduated = data.graduated || false
     }
 
 }

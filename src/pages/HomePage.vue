@@ -70,6 +70,8 @@ export default {
       olderPost: computed(()=> AppState.older),
       user: computed(()=> AppState.user),
       account: computed(()=> AppState.account),
+      page: computed(()=> AppState.page),
+      totalPages: computed(()=> AppState.totalPages),
 
       async changePage(url){
       try {

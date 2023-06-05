@@ -12,10 +12,14 @@
                 <h4>{{ profileProp.name }}</h4>
                 <h5 >Class of {{ profileProp.class }}</h5>
                 <p>{{ profileProp.bio }}</p>
-                <h5 :disabled="!linkedin"> <i class="mdi mdi-linkedin"></i> </h5>
-                <h5 :disabled="!linkedin"> <i class="mdi mdi-github"></i> </h5>
-                <p :disabled="graduated"> <i class="mdi mid-graduated">graduated</i></p>
-                <p>{{ profileProp.class }}</p>
+                <h5 v-if="profileProp?.Linkedin"> <i class="mdi mdi-linkedin"></i> </h5>
+                <h5 v-if="profileProp?.github">
+                    <a href="profile.github" rel="noopener">
+                     <i class="mdi mdi-github"></i> 
+                    </a>
+                    </h5>
+                <p v-if="profileProp?.graduated==true"> <i class="mdi mdi-graduated">Graduated</i></p>
+                <!-- <p>{{ profileProp.class }}</p> -->
             </div>
 
         </div>
